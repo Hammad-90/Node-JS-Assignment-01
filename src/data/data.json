@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "name": "Ayesha Khan", "email": "ayesha@example.com", "age": 22 },
+    { "id": 2, "name": "Ali Ahmed", "email": "ali@example.com", "age": 25 }
+  ],
+  "products": [
+    { "id": 1, "name": "Wireless Headphones", "description": "Bluetooth over-ear headphones", "price": 49.99, "stock": 20 },
+    { "id": 2, "name": "USB-C Cable", "description": "1 metre fast-charging cable", "price": 9.99, "stock": 100 }
+  ]
+}

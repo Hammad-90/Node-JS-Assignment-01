@@ -1,0 +1,13 @@
+const express = require('express');
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
+const app = express();
+app.use(express.json());
+app.get('/', (req, res) => res.status(200).json({status:'success', message:'Welcome to the E-Commerce Backend REST API', endpoints:{users:'/api/users',products:'/api/products',health:'/api/health'}}));
+app.get('/api/health', (req,res) => res.status(200).json({status:'success',message:'API is healthy'}));
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
+app.use(notFound);
+app.use(errorHandler);
+module.exports = app;

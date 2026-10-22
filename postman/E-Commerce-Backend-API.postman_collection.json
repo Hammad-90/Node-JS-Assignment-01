@@ -1,0 +1,499 @@
+{
+  "info": {
+    "_postman_id": "f2d7c26e-6c34-4df7-8b83-8c96b47a82b1",
+    "name": "E-Commerce Backend REST API",
+    "description": "10 required endpoints plus auth, validation, and not-found test cases. Start server and update apiKey to match .env.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "1. GET All Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/users",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "2. GET Single User",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/users/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "1"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "3. POST Add User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/users?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 201; protected",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Hammad\",\n  \"email\": \"hammad.demo@example.com\",\n  \"age\": 18\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. PUT Update User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/users/1?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 200; protected",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Ayesha Khan Updated\",\n  \"age\": 23\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. DELETE User",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/users/2?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 200; protected and destructive"
+      },
+      "response": []
+    },
+    {
+      "name": "6. GET All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "7. GET Single Product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "8. POST Add Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/products?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 201; protected",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Gaming Mouse\",\n  \"description\": \"USB gaming mouse\",\n  \"price\": 24.99,\n  \"stock\": 15\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. PUT Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/1?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 200; protected",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 44.99,\n  \"stock\": 18\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. DELETE Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/2?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "2"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 200; protected and destructive"
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - Missing API Key",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/users",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "description": "Expected 401; intentionally no API key",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"No Key\",\n  \"email\": \"nokey@example.com\",\n  \"age\": 20\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - Invalid User Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/users?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 400; validation test",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"email\": \"not-an-email\",\n  \"age\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - Invalid Product Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/products?apiKey={{apiKey}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        },
+        "description": "Expected 400; validation test",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Bad Product\",\n  \"description\": \"\",\n  \"price\": -2,\n  \"stock\": -1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - User Not Found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/users/99999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "99999"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - Product Not Found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/99999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "99999"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "ERROR - Unknown Route",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/not-a-route",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "not-a-route"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "my-secret-key-123",
+      "type": "string"
+    }
+  ]
+}
